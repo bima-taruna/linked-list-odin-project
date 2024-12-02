@@ -1,36 +1,48 @@
+import Node from "./node";
+
 class LinkedList {
   constructor(value) {
-    this.head = {
+    this.nodeHead = {
       value: value,
       next: null,
     };
 
-    this.tail = null;
-    this.length = 1;
+    this.nodeTail = this.nodeHead;
+    this.length = 0;
   }
 
-  append(value) {}
+  append(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.nodeHead = newNode;
+      this.nodeTail = newNode;
+      this.length++;
+    }
+    this.nodeTail.next = newNode;
+    this.nodeTail = newNode;
+    this.length++;
+  }
 
   size() {
     return this.length;
   }
 
   head() {
-    return this.head.value;
+    return this.nodeHead;
   }
 
   tail() {
-    return this.tail.value;
+    return this.nodeTail;
   }
 
   toString() {
     const arr = [];
-    let currentNode = this.head;
+    let currentNode = this.nodeHead;
     while (currentNode !== null) {
       arr.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    if (arr.length === 0 || arr[0] === undefined) {
+    if (this.length === 0) {
       return "linked list is empty";
     }
     return arr.map((item) => `( ${item} ) ->`).join(" ") + " null";

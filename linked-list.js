@@ -38,10 +38,16 @@ class LinkedList {
   }
 
   pop() {
-    let targetNode = this.at(this.length - 1);
-    targetNode.next = null;
-    this.tail = targetNode;
-    this.length--;
+    if (this.length > 1) {
+      let targetNode = this.at(this.length - 2);
+      targetNode.next = null;
+      this.nodeTail = targetNode;
+      this.length--;
+    } else {
+      this.nodeHead = null;
+      this.nodeTail = null;
+      this.length--;
+    }
   }
 
   at(index) {

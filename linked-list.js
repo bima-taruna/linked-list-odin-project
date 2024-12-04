@@ -88,6 +88,37 @@ class LinkedList {
     return null;
   }
 
+  insertAt(value, index) {
+    if (index === 0) {
+      this.prepend(value);
+    }
+    if (index === this.length - 1) {
+      this.append(value);
+    } else {
+      const newNode = new Node(value);
+      const before = this.at(index - 1);
+      const target = before.next;
+      newNode.next = target;
+      before.next = newNode;
+    }
+    this.length++;
+  }
+
+  removeAt(index) {
+    if (index === this.length - 1) {
+      this.pop();
+    }
+    if (index === 0) {
+      let newHead = this.nodeHead.next;
+      this.nodeHead = newHead;
+    } else {
+      const beforeNode = this.at(index - 1);
+      const targetNode = this.at(index);
+      beforeNode.next = targetNode.next;
+    }
+    this.length--;
+  }
+
   size() {
     return this.length;
   }

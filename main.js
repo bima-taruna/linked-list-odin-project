@@ -1,8 +1,13 @@
 import LinkedList from "./linked-list.js";
 
-const linkedList = new LinkedList();
+const list = new LinkedList();
 
-linkedList.append("dog");
-linkedList.prepend("cat");
-
-console.log(linkedList.toString());
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
+list.insertAt("anjing", 4);
+list.removeAt(2);
+console.log(list.toString());

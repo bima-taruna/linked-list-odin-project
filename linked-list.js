@@ -60,6 +60,20 @@ class LinkedList {
     return currentNode;
   }
 
+  contains(value) {
+    let currentNode = this.nodeHead;
+    let counter = 0;
+    while (counter !== this.length - 1) {
+      if (currentNode.value !== value) {
+        currentNode = currentNode.next;
+        counter++;
+      } else if (currentNode.value === value) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   size() {
     return this.length;
   }

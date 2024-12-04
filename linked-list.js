@@ -37,6 +37,23 @@ class LinkedList {
     }
   }
 
+  pop() {
+    let targetNode = this.at(this.length - 1);
+    targetNode.next = null;
+    this.tail = targetNode;
+    this.length--;
+  }
+
+  at(index) {
+    let counter = 0;
+    let currentNode = this.nodeHead;
+    while (index !== counter) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
+
   size() {
     return this.length;
   }

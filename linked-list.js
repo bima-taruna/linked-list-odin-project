@@ -8,7 +8,11 @@ class LinkedList {
     };
 
     this.nodeTail = this.nodeHead;
-    this.length = 0;
+    if (value !== null || value !== undefined) {
+      this.length = 1;
+    } else {
+      this.length = 0;
+    }
   }
 
   append(value) {
